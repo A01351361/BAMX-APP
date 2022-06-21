@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="tec.mx.bancodecomida.mapa"
+        android:label="@string/mapa"
+        tools:layout="@layout/fragment_mapa" />
+    <fragment
+        android:id="@+id/milestonesFragment"
+        android:name="tec.mx.bancodecomida.milestones"
+        android:label="@string/milestones_news"
+        tools:layout="@layout/fragment_milestones" >
+        <action
+            android:id="@+id/action_milestonesFragment_to_donationFragment"
+            app:destination="@id/donationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="tec.mx.bancodecomida.settingsFragment"
+        android:label="@string/settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_settings_profile"
+            app:destination="@id/settings_profile" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settings_support"
+            app:destination="@id/settings_support" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="tec.mx.bancodecomida.FeedFragment"
+        android:label="@string/feed_news"
+        tools:layout="@layout/fragment_feed">
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings_profile"
+        android:name="tec.mx.bancodecomida.Settings.settings_profile"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_settings_profile" />
+    <fragment
+        android:id="@+id/settings_support"
+        android:name="tec.mx.bancodecomida.Settings.settings_support"
+        android:label="@string/support"
+        tools:layout="@layout/fragment_settings_support" >
+        <action
+            android:id="@+id/action_settings_support_to_settings_support_agreements"
+            app:destination="@id/settings_support_agreements" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings_support_agreements"
+        android:name="tec.mx.bancodecomida.Settings.settings_support_agreements"
+        tools:layout="@layout/fragment_settings_support_agreements" />
+    <fragment
+        android:id="@+id/donationFragment"
+        android:name="tec.mx.bancodecomida.Milestones.donationFragment"
+        android:label="@string/donate"
+        tools:layout="@layout/fragment_donation" />
+</navigation>
